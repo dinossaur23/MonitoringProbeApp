@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomeActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <RelativeLayout
+            android:id="@+id/lay_ble"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="30dp">
+
+            <ImageView
+                android:id="@+id/img_ble"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerInParent="true"
+                android:src="@drawable/bluetooth" />
+
+            <Button
+                android:id="@+id/btnBle"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerInParent="true"
+                android:background="@android:color/transparent"
+                android:textAllCaps="false" />
+
+            <TextView
+                android:id="@+id/txt_Ble"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:hint="@string/text_ble" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/lay_gps"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="30dp" >
+
+            <ImageView
+                android:id="@+id/img_gps"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerInParent="true"
+                android:src="@drawable/map" />
+
+            <Button
+                android:id="@+id/btnGps"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerInParent="true"
+                android:background="@android:color/transparent"
+                android:textAllCaps="false" />
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:hint="@string/text_gps" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/lay_soil"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="200dp">
+
+            <ImageView
+                android:id="@+id/img_soil"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerInParent="true"
+                android:src="@drawable/soil" />
+
+            <Button
+                android:id="@+id/btnSoil"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerInParent="true"
+                android:background="@android:color/transparent"
+                android:textAllCaps="false" />
+
+            <TextView
+                android:id="@+id/txt_Soil"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:hint="@string/text_soil" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/lay_air"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="200dp" >
+
+            <ImageView
+                android:id="@+id/img_air"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerInParent="true"
+                android:src="@drawable/weather" />
+
+            <Button
+                android:id="@+id/btnAir"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerInParent="true"
+                android:background="@android:color/transparent"
+                android:textAllCaps="false" />
+
+            <TextView
+                android:id="@+id/txt_weather"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:hint="@string/text_weather" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/lay_wind"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="370dp">
+
+            <ImageView
+                android:id="@+id/img_wind"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerInParent="true"
+                android:src="@drawable/windmill" />
+
+            <Button
+                android:id="@+id/btnWind"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerInParent="true"
+                android:background="@android:color/transparent"
+                android:textAllCaps="false" />
+
+            <TextView
+                android:id="@+id/txt_wind"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:hint="@string/text_wind" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/lay_set"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="370dp" >
+
+            <ImageView
+                android:id="@+id/img_set"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerInParent="true"
+                android:src="@drawable/technology" />
+
+            <Button
+                android:id="@+id/btnSet"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerInParent="true"
+                android:background="@android:color/transparent"
+                android:textAllCaps="false" />
+
+            <TextView
+                android:id="@+id/txt_set"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:hint="@string/text_settings" />
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</android.support.constraint.ConstraintLayout>
