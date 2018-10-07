@@ -139,19 +139,22 @@ public class BLEPeripheral {
 
         @Override
         public void onCharacteristicRead(BluetoothGatt gatt, BluetoothGattCharacteristic characteristic, int status) {
-            if (status == BluetoothGatt.GATT_SUCCESS) {
-                while(characteristic.getValue().toString() != "") {
-                    mConnector.log(String.format("onCharacteristicRead received: [%s] value:", characteristic.getUuid().toString()));
-                    mConnector.log(String.format(new String(characteristic.getValue())));
+            mConnector.log(String.format("onCharacteristicRead received: [%s] value:", characteristic.getUuid().toString()));
+            mConnector.log(String.format(new String(characteristic.getValue())));
 
+            if (status == BluetoothGatt.GATT_SUCCESS) {
+               // while(characteristic.getValue().toString() != "") {
+
+                    // convert the response to UTF-8
                     byte[] data = Base64.decode(characteristic.getValue(), Base64.DEFAULT);
                     String response = new String(data, Charset.forName("UTF-8"));
+                    // save in database.txt
                     SaveInFile(response);
 
                     mConnector.log(String.format(response));
 
-                    mBluetoothGatt.readCharacteristic(characteristic);
-                }
+                    //mBluetoothGatt.readCharacteristic(characteristic);
+               // }
 
                 mConnector.log(String.format("Finish all data :)"));
             } else {

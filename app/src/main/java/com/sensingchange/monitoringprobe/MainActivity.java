@@ -46,7 +46,10 @@ public class MainActivity extends AppCompatActivity {
                 String username = MainActivity.this.edtUsername.getText().toString();
                 String password = MainActivity.this.edtPassword.getText().toString();
                 if (validateLogin(username, password)) {
-                    doLogin(username, password);
+                    //doLogin(username, password);
+                    Intent intent = new Intent(MainActivity.this, HomeActivity.class);
+                    intent.putExtra("username", username);
+                    MainActivity.this.startActivity(intent);
                 }
             }
         });
@@ -72,7 +75,7 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         }
-        Toast.makeText(MainActivity.this, "Email is required", 0).show();
+        Toast.makeText(MainActivity.this, "Email is required", Toast.LENGTH_SHORT).show();
         return false;
     }
 
@@ -85,9 +88,9 @@ public class MainActivity extends AppCompatActivity {
                     intent.putExtra("username", username);
                     MainActivity.this.startActivity(intent);
                 } else if (status.equals(Integer.valueOf(401))) {
-                    Toast.makeText(MainActivity.this, "Invalid email or password", 0).show();
+                    Toast.makeText(MainActivity.this, "Invalid email or password", Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(MainActivity.this, "Unknown error", 0).show();
+                    Toast.makeText(MainActivity.this, "Unknown error", Toast.LENGTH_SHORT).show();
                 }
             }
 
@@ -96,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
                 StringBuilder stringBuilder = new StringBuilder();
                 stringBuilder.append("Error: ");
                 stringBuilder.append(t.toString());
-                Toast.makeText(context, stringBuilder.toString(), 0).show();
+                Toast.makeText(context, stringBuilder.toString(), Toast.LENGTH_SHORT).show();
             }
         });
     }
