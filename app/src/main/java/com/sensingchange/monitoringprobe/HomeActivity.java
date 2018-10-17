@@ -19,11 +19,17 @@ import com.sensingchange.monitoringprobe.remote.ApiUtils;
 public class HomeActivity extends Activity {
     private static final int MY_PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE = 1;
     Button btnBle;
+    Button btnSet;
+    Button btnAir;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        btnBle = findViewById(R.id.btnBle);
+        btnSet = findViewById(R.id.btnSet);
+        btnAir = findViewById(R.id.btnAir);
 
         try {
             if (ContextCompat.checkSelfPermission(this, // request permission when it is not granted.
@@ -34,9 +40,7 @@ public class HomeActivity extends Activity {
                 if (ActivityCompat.shouldShowRequestPermissionRationale(this,
                         Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
 
-                    // Show an expanation to the user *asynchronously* -- don't block
-                    // this thread waiting for the user's response! After the user
-                    // sees the explanation, try again to request the permission.
+                    // Resquest permisssion to user and the thread wait for the user's response!
 
                 } else {
 
@@ -53,16 +57,24 @@ public class HomeActivity extends Activity {
             e.printStackTrace();
         }
 
-        btnBle = findViewById(R.id.btnBle);
-
         btnBle.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(HomeActivity.this, ConnectActivity.class);
+                Intent intent = new Intent(HomeActivity.this, PairActivity.class);
                 startActivity(intent);
             }
         });
+
+        btnAir.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeActivity.this, AirInformationActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
     @Override

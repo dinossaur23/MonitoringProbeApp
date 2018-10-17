@@ -21,6 +21,8 @@ import java.io.FileOutputStream;
 import java.nio.charset.Charset;
 import java.util.HashMap;
 import java.util.UUID;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 import com.sensingchange.monitoringprobe.remote.FileHelper;
 import static android.content.Context.MODE_PRIVATE;
@@ -34,8 +36,7 @@ public class BLEPeripheral {
     private BluetoothGatt mBluetoothGatt;
     private BluetoothGattService mService = null;
     private HashMap<String, Command<String>> subscriptions;
-    private String response;
-
+    private BluetoothGattCharacteristic characteristic;
     public BLEPeripheral(BLEManager connector, String deviceId) {
         mConnector = connector;
         mDeviceId = deviceId;
@@ -140,10 +141,8 @@ public class BLEPeripheral {
         @Override
         public void onCharacteristicRead(BluetoothGatt gatt, BluetoothGattCharacteristic characteristic, int status) {
             mConnector.log(String.format("onCharacteristicRead received: [%s] value:", characteristic.getUuid().toString()));
-            mConnector.log(String.format(new String(characteristic.getValue())));
 
             if (status == BluetoothGatt.GATT_SUCCESS) {
-               // while(characteristic.getValue().toString() != "") {
 
                     // convert the response to UTF-8
                     byte[] data = Base64.decode(characteristic.getValue(), Base64.DEFAULT);
@@ -151,10 +150,11 @@ public class BLEPeripheral {
                     // save in database.txt
                     SaveInFile(response);
 
-                    mConnector.log(String.format(response));
-
-                    //mBluetoothGatt.readCharacteristic(characteristic);
-               // }
+                try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
 
                 mConnector.log(String.format("Finish all data :)"));
             } else {
@@ -177,7 +177,6 @@ public class BLEPeripheral {
             if (packet.equals(String.valueOf((char)2))) {
                 buffer = new StringBuilder();
             } else if (packet.equals(String.valueOf((char)3))) {
-                //mConnector.log(String.format("Characteristic received: [%s] Value: [%s]", characteristic.getUuid().toString(), buffer.toString()));
                 if (subscriptions == null || subscriptions.size() == 0) return;
 
                 Command<String> handler = subscriptions.get(characteristic.getUuid().toString());
@@ -238,7 +237,7 @@ public class BLEPeripheral {
     }
 
     public void readCharacteristic(String characteristicId) {
-        BluetoothGattCharacteristic characteristic = findCharacteristicById(characteristicId);
+        characteristic = findCharacteristicById(characteristicId);
         if (characteristic == null) return;
         mBluetoothGatt.readCharacteristic(characteristic);
     }
