@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.sensingchange.monitoringprobe.model.User;
 import com.sensingchange.monitoringprobe.model.UserModel;
 import com.sensingchange.monitoringprobe.remote.ApiUtils;
+import com.sensingchange.monitoringprobe.remote.RetrofitClient;
 import com.sensingchange.monitoringprobe.remote.UserService;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -46,10 +47,7 @@ public class MainActivity extends AppCompatActivity {
                 String username = MainActivity.this.edtUsername.getText().toString();
                 String password = MainActivity.this.edtPassword.getText().toString();
                 if (validateLogin(username, password)) {
-                    //doLogin(username, password);
-                    Intent intent = new Intent(MainActivity.this, HomeActivity.class);
-                    intent.putExtra("username", username);
-                    MainActivity.this.startActivity(intent);
+                    doLogin(username, password);
                 }
             }
         });
@@ -80,14 +78,21 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void doLogin(final String username, String password) {
-        ((UserService) new Builder().baseUrl("http://sensing-change.herokuapp.com/api/v1/").addConverterFactory(GsonConverterFactory.create()).build().create(UserService.class)).auth("application/json", new UserModel(new User(username, password))).enqueue(new Callback<User>() {
+        /*Create handle for the RetrofitClient interface*/
+        UserService service = RetrofitClient.getClient().create(UserService.class);
+
+        /*Call the method with parameter in the interface to get the user login*/
+        Call<User> call = service.auth("application/json", new UserModel(new User(username, password)));
+
+        call.enqueue(new Callback<User>() {
+
             public void onResponse(Call<User> call, Response<User> response) {
-                Integer status = Integer.valueOf(response.code());
-                if (status.equals(Integer.valueOf(ItemTouchHelper.Callback.DEFAULT_DRAG_ANIMATION_DURATION))) {
+                Integer status = response.code();
+                if (status.equals(200)) {
                     Intent intent = new Intent(MainActivity.this, HomeActivity.class);
                     intent.putExtra("username", username);
                     MainActivity.this.startActivity(intent);
-                } else if (status.equals(Integer.valueOf(401))) {
+                } else if (status.equals(401)) {
                     Toast.makeText(MainActivity.this, "Invalid email or password", Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(MainActivity.this, "Unknown error", Toast.LENGTH_SHORT).show();
