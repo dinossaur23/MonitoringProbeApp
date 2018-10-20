@@ -13,8 +13,8 @@
     <string name="text_ble">Probe with Bluetooth</string>
     <string name="text_air">Air information</string>
     <string name="text_gps">Probe Geolocation</string>
-    <string name="text_soil">Soil information</string>
-    <string name="text_weather">Weather information</string>
+    <string name="text_graphic">Graphics</string>
+    <string name="text_weather">Probe Data</string>
     <string name="text_wind">Wind information</string>
     <string name="text_settings">Settings</string>
 
@@ -25,4 +25,22 @@
     <string name="read">Read</string>
     <string name="title_activity_register">RegisterActivity</string>
     <string name="title_activity_main">MainActivity</string>
+
+    <!--Probe Data-->
+    <string name="probe_tittle">Probe Data</string>
+    <string name="last_measurement">Last measurement:</string>
+    <string name="air_sub">AIR DATA</string>
+    <string name="air_humidity">Air Humidity</string>
+    <string name="air_temperature">Air Temperature</string>
+    <string name="air_luminosity">Air Luminosity</string>
+    <string name="soil_sub">SOIL DATA</string>
+    <string name="soil_humidity">Soil Humidity</string>
+    <string name="soil_temperature">Soil Temperature</string>
+    <string name="soil_capacity">Soil Capacitive</string>
+    <string name="weather_sub">WEATHER DATA</string>
+    <string name="weather_raindrop_hour">Rainfall (1 hour)</string>
+    <string name="weather_raindrop_day">Rainfall (1 day)</string>
+    <string name="weather_wind_direction">Wind direction</string>
+    <string name="weather_wind_speed_average">Average wind speed</string>
+    <string name="weather_wind_speed_max">Max wind speed</string>
 </resources>

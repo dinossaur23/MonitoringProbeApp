@@ -8,7 +8,7 @@ import retrofit2.http.GET;
 
 public interface InformationService {
     // Air information
-    @GET("data/air_information")
+    @GET("data/probe_information")
     Call<AirInformation> auth (@Header("Content-Type") String contentType);
 
 }

@@ -1,0 +1,498 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomeActivity">
+
+    <RelativeLayout
+        android:id="@+id/lay_air"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true">
+
+        <ImageView
+            android:id="@+id/txt_cloud"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="10dp"
+            android:src="@drawable/cloud" />
+
+        <TextView
+            android:id="@+id/txt_Tittle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="41dp"
+            android:hint="@string/probe_tittle"
+            android:textSize="30sp" />
+
+        <TextView
+            android:id="@+id/txt_TimeDesc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="90dp"
+            android:hint="@string/last_measurement" />
+
+        <TextView
+            android:id="@+id/txt_timestamp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="110dp" />
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="140dp"
+            android:background="@color/colorScrollGray">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/txt_Air"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:hint="@string/air_sub"
+                    android:textSize="18sp" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp">
+
+                    <TextView
+                        android:id="@+id/txt_AirHumidity"
+                        android:layout_width="100dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="50dp"
+                        android:layout_marginTop="40dp"
+                        android:hint="@string/air_humidity"
+                        android:textSize="18sp" />
+
+                    <RelativeLayout
+                        android:id="@+id/lay_air_humidity"
+                        android:layout_width="150dp"
+                        android:layout_height="50dp"
+                        android:layout_marginStart="180dp"
+                        android:layout_marginTop="20dp"
+                        android:background="@color/colorBackGray">
+
+                        <TextView
+                            android:id="@+id/txt_air_humidity_value"
+                            android:layout_width="110dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="20dp" />
+                        <TextView
+                            android:id="@+id/txt_air_humidity_unity"
+                            android:layout_width="25dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="120dp"
+                            android:layout_marginTop="20dp" />
+                    </RelativeLayout>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp">
+
+                    <TextView
+                        android:id="@+id/txt_AirTemperature"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="40dp"
+                        android:layout_marginTop="40dp"
+                        android:hint="@string/air_temperature"
+                        android:textSize="18sp" />
+
+                    <RelativeLayout
+                        android:id="@+id/lay_air_temperature"
+                        android:layout_width="150dp"
+                        android:layout_height="50dp"
+                        android:layout_marginStart="180dp"
+                        android:layout_marginTop="20dp"
+                        android:background="@color/colorBackGray">
+
+                        <TextView
+                            android:id="@+id/txt_air_temperature_value"
+                            android:layout_width="110dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="20dp" />
+                        <TextView
+                            android:id="@+id/txt_air_temperature_unity"
+                            android:layout_width="25dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="120dp"
+                            android:layout_marginTop="20dp" />
+
+                    </RelativeLayout>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp">
+
+                    <TextView
+                        android:id="@+id/txt_AirLuminosity"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="40dp"
+                        android:layout_marginTop="40dp"
+                        android:hint="@string/air_luminosity"
+                        android:textSize="18sp" />
+
+                    <RelativeLayout
+                        android:id="@+id/lay_air_luminosity"
+                        android:layout_width="150dp"
+                        android:layout_height="50dp"
+                        android:layout_marginStart="180dp"
+                        android:layout_marginTop="20dp"
+                        android:background="@color/colorBackGray">
+
+                        <TextView
+                            android:id="@+id/txt_air_luminosity_value"
+                            android:layout_width="110dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="20dp" />
+                        <TextView
+                            android:id="@+id/txt_air_luminosity_unity"
+                            android:layout_width="25dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="120dp"
+                            android:layout_marginTop="20dp" />
+                    </RelativeLayout>
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/txt_Soil"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:hint="@string/soil_sub"
+                    android:textSize="18sp" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp">
+
+                    <TextView
+                        android:id="@+id/txt_SoilHumidity"
+                        android:layout_width="110dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="50dp"
+                        android:layout_marginTop="40dp"
+                        android:hint="@string/soil_humidity"
+                        android:textSize="18sp" />
+
+                    <RelativeLayout
+                        android:id="@+id/lay_soil_humidity"
+                        android:layout_width="150dp"
+                        android:layout_height="50dp"
+                        android:layout_marginStart="180dp"
+                        android:layout_marginTop="20dp"
+                        android:background="@color/colorBackGray">
+
+                        <TextView
+                            android:id="@+id/txt_soil_humidity_value"
+                            android:layout_width="110dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="20dp" />
+                        <TextView
+                            android:id="@+id/txt_soil_humidity_unity"
+                            android:layout_width="25dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="120dp"
+                            android:layout_marginTop="20dp" />
+                    </RelativeLayout>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp">
+
+                    <TextView
+                        android:id="@+id/txt_SoilTemperature"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="35dp"
+                        android:layout_marginTop="40dp"
+                        android:hint="@string/soil_temperature"
+                        android:textSize="18sp" />
+
+                    <RelativeLayout
+                        android:id="@+id/lay_soil_temperature"
+                        android:layout_width="150dp"
+                        android:layout_height="50dp"
+                        android:layout_marginStart="180dp"
+                        android:layout_marginTop="20dp"
+                        android:background="@color/colorBackGray">
+
+                        <TextView
+                            android:id="@+id/txt_soil_temperature_value"
+                            android:layout_width="110dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="20dp" />
+                        <TextView
+                            android:id="@+id/txt_soil_temperature_unity"
+                            android:layout_width="25dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="120dp"
+                            android:layout_marginTop="20dp" />
+                    </RelativeLayout>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp">
+
+                    <TextView
+                        android:id="@+id/txt_SoilCapacity"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="35dp"
+                        android:layout_marginTop="40dp"
+                        android:hint="@string/soil_capacity"
+                        android:textSize="18sp" />
+
+                    <RelativeLayout
+                        android:id="@+id/lay_soil_capacity"
+                        android:layout_width="150dp"
+                        android:layout_height="50dp"
+                        android:layout_marginStart="180dp"
+                        android:layout_marginTop="20dp"
+                        android:background="@color/colorBackGray">
+
+                        <TextView
+                            android:id="@+id/txt_soil_capacity_value"
+                            android:layout_width="110dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="20dp" />
+                        <TextView
+                            android:id="@+id/txt_soil_capacity_unity"
+                            android:layout_width="25dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="120dp"
+                            android:layout_marginTop="20dp" />
+                    </RelativeLayout>
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/txt_Weather"
+                    android:layout_width="140dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:hint="@string/weather_sub"
+                    android:textSize="18sp" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp">
+
+                    <TextView
+                        android:id="@+id/txt_WeatherRaindropHour"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="35dp"
+                        android:layout_marginTop="40dp"
+                        android:hint="@string/weather_raindrop_hour"
+                        android:textSize="18sp" />
+
+                    <RelativeLayout
+                        android:id="@+id/lay_weather_raindrop_hour"
+                        android:layout_width="150dp"
+                        android:layout_height="50dp"
+                        android:layout_marginStart="180dp"
+                        android:layout_marginTop="20dp"
+                        android:background="@color/colorBackGray">
+
+                        <TextView
+                            android:id="@+id/txt_weather_raindrop_hour_value"
+                            android:layout_width="110dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="20dp" />
+                        <TextView
+                            android:id="@+id/txt_weather_raindrop_hour_unity"
+                            android:layout_width="25dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="120dp"
+                            android:layout_marginTop="20dp" />
+                    </RelativeLayout>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp">
+
+                    <TextView
+                        android:id="@+id/txt_WeatherRaindropDay"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="35dp"
+                        android:layout_marginTop="40dp"
+                        android:hint="@string/weather_raindrop_day"
+                        android:textSize="18sp" />
+
+                    <RelativeLayout
+                        android:id="@+id/lay_weather_raindrop_day"
+                        android:layout_width="150dp"
+                        android:layout_height="50dp"
+                        android:layout_marginStart="180dp"
+                        android:layout_marginTop="20dp"
+                        android:background="@color/colorBackGray">
+
+                        <TextView
+                            android:id="@+id/txt_weather_raindrop_day_value"
+                            android:layout_width="110dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="20dp" />
+                        <TextView
+                            android:id="@+id/txt_weather_raindrop_day_unity"
+                            android:layout_width="25dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="120dp"
+                            android:layout_marginTop="20dp" />
+                    </RelativeLayout>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp">
+
+                    <TextView
+                        android:id="@+id/txt_WindDirection"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="35dp"
+                        android:layout_marginTop="40dp"
+                        android:hint="@string/weather_wind_direction"
+                        android:textSize="18sp" />
+
+                    <RelativeLayout
+                        android:id="@+id/lay_weather_wind_direction"
+                        android:layout_width="150dp"
+                        android:layout_height="50dp"
+                        android:layout_marginStart="180dp"
+                        android:layout_marginTop="20dp"
+                        android:background="@color/colorBackGray">
+
+                        <TextView
+                            android:id="@+id/txt_weather_wind_direction_value"
+                            android:layout_width="100dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="20dp" />
+                        <TextView
+                            android:id="@+id/txt_weather_wind_direction_direction"
+                            android:layout_width="35dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="110dp"
+                            android:layout_marginTop="20dp" />
+                    </RelativeLayout>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp">
+
+                    <TextView
+                        android:id="@+id/txt_WindSpeedAverage"
+                        android:layout_width="170dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="40dp"
+                        android:hint="@string/weather_wind_speed_average"
+                        android:textSize="18sp" />
+
+                    <RelativeLayout
+                        android:id="@+id/lay_weather_wind_speed_average"
+                        android:layout_width="150dp"
+                        android:layout_height="50dp"
+                        android:layout_marginStart="180dp"
+                        android:layout_marginTop="20dp"
+                        android:background="@color/colorBackGray">
+
+                        <TextView
+                            android:id="@+id/txt_weather_wind_speed_average_value"
+                            android:layout_width="110dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="20dp" />
+                        <TextView
+                            android:id="@+id/txt_weather_wind_speed_average_unity"
+                            android:layout_width="25dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="120dp"
+                            android:layout_marginTop="20dp" />
+                    </RelativeLayout>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp">
+
+                    <TextView
+                        android:id="@+id/txt_WindSpeedMax"
+                        android:layout_width="150dp"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="35dp"
+                        android:layout_marginTop="40dp"
+                        android:hint="@string/weather_wind_speed_max"
+                        android:textSize="18sp" />
+
+                    <RelativeLayout
+                        android:id="@+id/lay_weather_wind_speed_max"
+                        android:layout_width="150dp"
+                        android:layout_height="50dp"
+                        android:layout_marginStart="180dp"
+                        android:layout_marginTop="20dp"
+                        android:background="@color/colorBackGray">
+
+                        <TextView
+                            android:id="@+id/txt_weather_wind_speed_max_value"
+                            android:layout_width="110dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginTop="20dp" />
+                        <TextView
+                            android:id="@+id/txt_weather_wind_speed_max_unity"
+                            android:layout_width="25dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="120dp"
+                            android:layout_marginTop="20dp" />
+                    </RelativeLayout>
+                </RelativeLayout>
+            </LinearLayout>
+        </ScrollView>
+
+    </RelativeLayout>
+
+</android.support.constraint.ConstraintLayout>

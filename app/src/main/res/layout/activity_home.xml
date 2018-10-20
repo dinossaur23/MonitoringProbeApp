@@ -81,22 +81,22 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/lay_soil"
+            android:id="@+id/lay_graphic"
             android:layout_width="150dp"
             android:layout_height="150dp"
             android:layout_marginStart="20dp"
             android:layout_marginTop="200dp">
 
             <ImageView
-                android:id="@+id/img_soil"
+                android:id="@+id/img_graphic"
                 android:layout_width="120dp"
                 android:layout_height="120dp"
                 android:layout_alignParentTop="true"
                 android:layout_centerInParent="true"
-                android:src="@drawable/soil" />
+                android:src="@drawable/chart" />
 
             <Button
-                android:id="@+id/btnSoil"
+                android:id="@+id/btnGraphic"
                 android:layout_width="120dp"
                 android:layout_height="120dp"
                 android:layout_alignParentTop="true"
@@ -105,12 +105,12 @@
                 android:textAllCaps="false" />
 
             <TextView
-                android:id="@+id/txt_Soil"
+                android:id="@+id/txt_Graphic"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
-                android:hint="@string/text_soil" />
+                android:hint="@string/text_graphic" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -127,7 +127,7 @@
                 android:layout_height="120dp"
                 android:layout_alignParentTop="true"
                 android:layout_centerInParent="true"
-                android:src="@drawable/weather" />
+                android:src="@drawable/soil" />
 
             <Button
                 android:id="@+id/btnAir"

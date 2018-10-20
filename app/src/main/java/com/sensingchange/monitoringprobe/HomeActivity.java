@@ -3,17 +3,13 @@ package com.sensingchange.monitoringprobe;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.os.Build;
 import android.os.Bundle;
 import android.app.Activity;
-import android.support.annotation.RequiresApi;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-
-import com.sensingchange.monitoringprobe.remote.ApiUtils;
 
 
 public class HomeActivity extends Activity {
@@ -70,7 +66,7 @@ public class HomeActivity extends Activity {
 
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(HomeActivity.this, AirInformationActivity.class);
+                Intent intent = new Intent(HomeActivity.this, ProbeDataActivity.class);
                 startActivity(intent);
             }
         });
