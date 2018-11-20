@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".GraphicsActivity"
+    android:background="@drawable/gradient">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:elevation="8dp"
+        android:divider="@android:color/transparent"
+        android:clipToPadding="false"
+        android:clipChildren="false">
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:hint="@string/title_activity_graphics"
+            android:textColor="@color/colorBlack"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <ImageButton
+            android:id="@+id/btnBack"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/back">
+        </ImageButton>
+    </android.support.v7.widget.CardView>
+
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="70dp"
+                    android:gravity="center">
+
+                    <Button
+                        android:id="@+id/btnLastDay"
+                        android:layout_width="90dp"
+                        android:layout_height="40dp"
+                        android:hint="@string/last_day"
+                        android:textSize="12sp"/>
+
+                    <Button
+                        android:id="@+id/btnLastWeek"
+                        android:layout_width="90dp"
+                        android:layout_height="40dp"
+                        android:hint="@string/last_week"
+                        android:textSize="12sp"/>
+
+                    <Button
+                        android:id="@+id/btnLastMonth"
+                        android:layout_width="90dp"
+                        android:layout_height="40dp"
+                        android:hint="@string/last_month"
+                        android:textAllCaps="false"
+                        android:textSize="12sp"/>
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/soil_humidity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="10dp"
+                    android:hint="@string/soil_humidity"/>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="300dp"
+                    android:layout_marginTop="10dp">
+
+                        <com.github.mikephil.charting.charts.LineChart
+                            android:id="@+id/soil_humidity_chart"
+                            android:layout_width="360dp"
+                            android:layout_height="300dp"
+                            android:layout_marginLeft="15dp">
+                        </com.github.mikephil.charting.charts.LineChart>
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/soil_temperature"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="20dp"
+                    android:hint="@string/soil_temperature"/>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="300dp"
+                    android:layout_marginTop="10dp">
+
+                    <com.github.mikephil.charting.charts.LineChart
+                        android:id="@+id/soil_temperature_chart"
+                        android:layout_width="360dp"
+                        android:layout_height="300dp"
+                        android:layout_marginLeft="15dp">
+                    </com.github.mikephil.charting.charts.LineChart>
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/soil_capacity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="20dp"
+                    android:hint="@string/soil_capacity"/>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="300dp"
+                    android:layout_marginTop="10dp">
+
+                    <com.github.mikephil.charting.charts.LineChart
+                        android:id="@+id/soil_capacity_chart"
+                        android:layout_width="360dp"
+                        android:layout_height="300dp"
+                        android:layout_marginLeft="15dp">
+                    </com.github.mikephil.charting.charts.LineChart>
+                </RelativeLayout>
+            </LinearLayout>
+        </ScrollView>
+</android.support.design.widget.CoordinatorLayout>

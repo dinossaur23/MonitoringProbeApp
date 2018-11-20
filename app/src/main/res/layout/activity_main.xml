@@ -79,7 +79,7 @@
                 android:bottomRightRadius="10dp"
                 android:stateListAnimator="@null"
                 android:text="@string/login"
-                android:textColor="#fff"
+                android:textColor="@color/colorWhite"
                 android:textSize="18sp" />
 
         </RelativeLayout>

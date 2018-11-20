@@ -22,17 +22,21 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
-        <activity android:name=".HomeActivity">
+        <activity android:name=".HomeActivity" >
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
         </activity>
         <activity android:name=".ConnectActivity" />
         <activity android:name=".PairActivity" />
-        <activity android:name=".ProbeDataActivity"></activity>
+        <activity android:name=".ProbeDataActivity" />
+        <activity
+            android:name=".GraphicsActivity"
+            android:label="@string/title_activity_graphics"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>

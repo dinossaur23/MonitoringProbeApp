@@ -17,6 +17,7 @@ public class HomeActivity extends Activity {
     Button btnBle;
     Button btnSet;
     Button btnAir;
+    Button btnGraphic;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +27,7 @@ public class HomeActivity extends Activity {
         btnBle = findViewById(R.id.btnBle);
         btnSet = findViewById(R.id.btnSet);
         btnAir = findViewById(R.id.btnAir);
+        btnGraphic = findViewById(R.id.btnGraphic);
 
         try {
             if (ContextCompat.checkSelfPermission(this, // request permission when it is not granted.
@@ -67,6 +69,15 @@ public class HomeActivity extends Activity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(HomeActivity.this, ProbeDataActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        btnGraphic.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeActivity.this, GraphicsActivity.class);
                 startActivity(intent);
             }
         });
