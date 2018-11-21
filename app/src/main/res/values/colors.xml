@@ -9,4 +9,5 @@
     <color name="colorBlack">#000000</color>
     <color name="colorPink">#f785aa</color>
     <color name="colorGray">#5c595a</color>
+    <color name="colorBackgroundGradient">#11000000</color>
 </resources>

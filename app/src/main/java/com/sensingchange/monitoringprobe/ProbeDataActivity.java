@@ -1,8 +1,10 @@
 package com.sensingchange.monitoringprobe;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -103,6 +105,11 @@ public class ProbeDataActivity extends AppCompatActivity {
                 Toast.makeText(context, stringBuilder.toString(), Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    public void back(View v){
+        Intent intent = new Intent(ProbeDataActivity.this, HomeActivity.class);
+        startActivity(intent);
     }
 
     private void setValuesOnView(AirInformation response) {

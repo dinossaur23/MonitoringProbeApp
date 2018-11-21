@@ -49,4 +49,10 @@
     <string name="last_day">last day</string>
     <string name="last_week">last week</string>
     <string name="last_month">last month</string>
+    <string name="last_day_measurements">Last day measurements</string>
+    <string name="last_week_measurements">Last week measurements</string>
+    <string name="last_month_measurements">Last month measurements</string>
+
+    <!--Probe with Bluetooth-->
+    <string name="title_activity_pair">Probe with Bluetooth</string>
 </resources>
