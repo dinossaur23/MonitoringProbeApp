@@ -33,7 +33,7 @@ public class PairActivity extends Activity {
     public boolean finished = false;
 
 
-    public void sendBtMsg(String msg2send){
+    public void sendBtMsg(String msg){
         UUID uuid = UUID.fromString("8bacc104-15eb-4b37-bea6-0df3ac364199"); //Standard SerialPortService ID
         try {
 
@@ -42,8 +42,6 @@ public class PairActivity extends Activity {
                 mmSocket.connect();
             }
 
-            String msg = msg2send;
-            //msg += "\n";
             OutputStream mmOutputStream = mmSocket.getOutputStream();
             mmOutputStream.write(msg.getBytes());
 
@@ -59,7 +57,10 @@ public class PairActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pair);
 
-        final Handler handler = new Handler();
+    }
+
+    public void pair_and_send(View v){
+        setContentView(R.layout.activity_pair);
 
         myLabel = findViewById(R.id.text_window);
         tempButton = findViewById(R.id.btnPair);
@@ -103,16 +104,6 @@ public class PairActivity extends Activity {
                                         SaveInFile(data);
 
                                         readBufferPosition = 0;
-
-//                                    myLabel.post(new Runnable()
-//                                    {
-//
-//                                        @Override
-//                                        public void run()
-//                                        {
-//                                            myLabel.setText(data);
-//                                        }
-//                                    });
 
                                         workDone = true;
                                         break;
@@ -182,10 +173,9 @@ public class PairActivity extends Activity {
         }
         if (mmDevice == null) {
             Toast.makeText(PairActivity.this, "Raspberry not found!", Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(PairActivity.this, HomeActivity.class);
-            startActivity(intent);
+//            Intent intent = new Intent(PairActivity.this, HomeActivity.class);
+//            startActivity(intent);
         }
-
     }
 
     private void SaveInFile(String response){
@@ -195,12 +185,5 @@ public class PairActivity extends Activity {
             e.printStackTrace();
         }
     }
-
-//    @Override
-//    public boolean onCreateOptionsMenu(Menu menu) {
-//        // Inflate the menu; this adds items to the action bar if it is present.
-//        getMenuInflater().inflate(R.menu.main, menu);
-//        return true;
-//    }
 
 }

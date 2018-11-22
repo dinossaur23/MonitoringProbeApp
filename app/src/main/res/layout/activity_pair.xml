@@ -52,6 +52,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="30dip"
             android:layout_weight="1"
+            android:onClick="pair_and_send"
             android:text="pair" >
         </Button>
     </LinearLayout>

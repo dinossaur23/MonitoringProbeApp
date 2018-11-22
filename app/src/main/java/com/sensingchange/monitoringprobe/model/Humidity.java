@@ -19,6 +19,10 @@ public class Humidity {
     String average_value;
     @SerializedName("max_value")
     String max_value;
+    @SerializedName("latitude")
+    Double latitude;
+    @SerializedName("longitude")
+    Double longitude;
 
     public String getValue() {
         return value;
@@ -50,5 +54,13 @@ public class Humidity {
 
     public String getMaxValue() {
         return max_value;
+    }
+
+    public Double getLatitude() {
+        return latitude;
+    }
+
+    public Double getLongitude() {
+        return longitude;
     }
 }
