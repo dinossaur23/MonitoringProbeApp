@@ -47,6 +47,7 @@ public class PairActivity extends Activity {
     final byte end_of_file = 33;
     int readBufferPosition = 0;
     public boolean finished = false;
+    public boolean sended_to_server = false;
     String database_path = "Database/database.txt";
     String body_utf;
 
@@ -86,10 +87,17 @@ public class PairActivity extends Activity {
         if (has_collected_data()){
             ConvertUTF8();
             String converted[] = body_utf.split("\\r?\\n");
-            for (int i = 0; i < 2; i++) {
-                post_measurement(converted[i], i);
+            for (int i = 0; i < converted.length; i++) {
+               post_measurement(converted[i], i);
             }
-            boolean n = false;
+
+            if(!sended_to_server) {
+                Toast.makeText(PairActivity.this, "Sent!", Toast.LENGTH_SHORT).show();
+                btnSend.setEnabled(false);
+                send_info.setTextColor(getResources().getColor(R.color.colorRed));
+                send_info.setText(getResources().getString(R.string.send_info));
+                FileHelper.DeleteDatabaseFile();
+            }
         }
     }
 
@@ -109,7 +117,8 @@ public class PairActivity extends Activity {
             public void onResponse(Call<Post> call, Response<Post> response) {
                 Integer status = response.code();
                 if (status.equals(200)) {
-                    Toast.makeText(PairActivity.this, String.valueOf(i), Toast.LENGTH_SHORT).show();
+                    Toast.makeText(PairActivity.this, "Sending " + String.valueOf(i), Toast.LENGTH_SHORT).show();
+                    sended_to_server = true;
                 } else if (status.equals(401)) {
                     Toast.makeText(PairActivity.this, "Invalid", Toast.LENGTH_SHORT).show();
                 } else {
@@ -118,13 +127,13 @@ public class PairActivity extends Activity {
             }
 
             public void onFailure(Call<Post> call, Throwable t) {
-
+                Toast.makeText(PairActivity.this, "Try again", Toast.LENGTH_SHORT).show();
             }
         });
     }
 
     public void sendBtMsg(String msg){
-        UUID uuid = UUID.fromString("8bacc104-15eb-4b37-bea6-0df3ac364199"); //Standard SerialPortService ID
+        UUID uuid = UUID.fromString(getResources().getString(R.string.raspberry_bluetooth_key)); //Standard SerialPortService ID
         try {
 
             mmSocket = mmDevice.createRfcommSocketToServiceRecord(uuid);

@@ -1,6 +1,7 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="TypographyDashes">
     <!--Keys-->
     <string name="google_maps_key">XXXXX</string>
+    <string name="raspberry_bluetooth_key">8bacc104-15eb-4b37-bea6-0df3ac364199</string>
 
     <!--Login-->
     <string name="app_name">Monitoring Probe</string>
@@ -72,7 +73,9 @@
     </string>
     <string name="send_button">SEND</string>
     <string name="send_info">You don\'t have information collected to send.</string>
-    <string name="send_info_collect">You have information collected to send!</string>
+    <string name="send_info_collect">You have information collected to send!
+        \n\t\t\t\t\t\t\t\tIt will take a while!
+    </string>
 
     <!--Location-->
     <string name="title_activity_location">Probe Geolocation</string>

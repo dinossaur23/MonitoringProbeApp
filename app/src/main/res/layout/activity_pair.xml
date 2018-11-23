@@ -104,7 +104,7 @@
             <TextView
                 android:id="@+id/send_info"
                 android:layout_width="285dp"
-                android:layout_height="20dp"
+                android:layout_height="40dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginStart="15dp"
                 android:layout_marginEnd="15dp"
@@ -116,7 +116,7 @@
                 android:id="@+id/btnSend"
                 android:layout_width="150dp"
                 android:layout_height="35dp"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 android:layout_marginBottom="20dp"
                 android:layout_gravity="center"
                 android:background="@drawable/button_radius"
@@ -126,27 +126,4 @@
 
         </LinearLayout>
     </RelativeLayout>
-
-    <TextView
-        android:id="@+id/text_window"
-        android:layout_width="match_parent"
-        android:layout_height="200dip"
-        android:lines="4" />
-
-    <LinearLayout
-        style="?android:attr/buttonBarButtonStyle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-
-        <Button
-            android:id="@+id/btnPair2"
-            style="?android:attr/buttonBarButtonStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dip"
-            android:layout_weight="1"
-            android:onClick="pair_and_send"
-            android:text="pair" >
-        </Button>
-    </LinearLayout>
 </LinearLayout>

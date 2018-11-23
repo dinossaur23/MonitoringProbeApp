@@ -86,4 +86,10 @@ public class FileHelper {
         return line;
     }
 
+    public static boolean DeleteDatabaseFile(){
+        File file = new File(path + "/Database/"+ "test.txt");
+        boolean deleted = file.delete();
+        return deleted;
+    }
+
 }
