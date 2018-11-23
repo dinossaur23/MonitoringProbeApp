@@ -1,5 +1,6 @@
 package com.sensingchange.monitoringprobe;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
@@ -12,17 +13,32 @@ import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+import com.sensingchange.monitoringprobe.model.measurement.Post;
 import com.sensingchange.monitoringprobe.remote.FileHelper;
+import com.sensingchange.monitoringprobe.remote.MeasurementService;
+import com.sensingchange.monitoringprobe.remote.RetrofitClient;
+
+import org.json.JSONObject;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class PairActivity extends Activity {
-    Button tempButton;
-    TextView myLabel;
+    Button btnPair;
+    Button btnSend;
+    TextView send_info;
 
     BluetoothSocket mmSocket;
     BluetoothDevice mmDevice = null;
@@ -31,7 +47,81 @@ public class PairActivity extends Activity {
     final byte end_of_file = 33;
     int readBufferPosition = 0;
     public boolean finished = false;
+    String database_path = "Database/database.txt";
+    String body_utf;
 
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_pair);
+        btnPair = findViewById(R.id.btnPair);
+        send_info = findViewById(R.id.send_info);
+        btnSend = findViewById(R.id.btnSend);
+
+        if (has_collected_data()){
+            send_info.setTextColor(getResources().getColor(R.color.colorGreen));
+            send_info.setText(R.string.send_info_collect);
+        }
+        else {
+            btnSend.setEnabled(false);
+        }
+    }
+
+    private boolean has_collected_data(){
+        File file = new File(Environment.getExternalStorageDirectory(), database_path);
+        if(file.exists()) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    public void back(View v){
+        Intent intent = new Intent(PairActivity.this, HomeActivity.class);
+        startActivity(intent);
+    }
+
+    public void send_to_server(View v){
+        if (has_collected_data()){
+            ConvertUTF8();
+            String converted[] = body_utf.split("\\r?\\n");
+            for (int i = 0; i < 2; i++) {
+                post_measurement(converted[i], i);
+            }
+            boolean n = false;
+        }
+    }
+
+    private void post_measurement(String body, final Integer i){
+        JsonParser jsonParser = new JsonParser();
+        JsonElement element = jsonParser.parse(body);
+
+        /*Create handle for the RetrofitClient interface*/
+        MeasurementService service = RetrofitClient.getClient().create(MeasurementService.class);
+
+        /*Call the method with parameter in the interface to get the user login*/
+        Call<Post> call = service.postMeasurement("application/json", element);
+
+        call.enqueue(new Callback<Post>() {
+
+            @Override
+            public void onResponse(Call<Post> call, Response<Post> response) {
+                Integer status = response.code();
+                if (status.equals(200)) {
+                    Toast.makeText(PairActivity.this, String.valueOf(i), Toast.LENGTH_SHORT).show();
+                } else if (status.equals(401)) {
+                    Toast.makeText(PairActivity.this, "Invalid", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(PairActivity.this, "Unknown error", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            public void onFailure(Call<Post> call, Throwable t) {
+
+            }
+        });
+    }
 
     public void sendBtMsg(String msg){
         UUID uuid = UUID.fromString("8bacc104-15eb-4b37-bea6-0df3ac364199"); //Standard SerialPortService ID
@@ -52,20 +142,7 @@ public class PairActivity extends Activity {
 
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_pair);
-
-    }
-
     public void pair_and_send(View v){
-        setContentView(R.layout.activity_pair);
-
-        myLabel = findViewById(R.id.text_window);
-        tempButton = findViewById(R.id.btnPair);
-
-
         BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
 
         final class workerThread implements Runnable {
@@ -132,12 +209,12 @@ public class PairActivity extends Activity {
 
                 }
             }
-        };
+        }
 
 
         // start temp button handler
 
-        tempButton.setOnClickListener(new View.OnClickListener() {
+        btnPair.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
@@ -181,6 +258,14 @@ public class PairActivity extends Activity {
     private void SaveInFile(String response){
         try {
             FileHelper.saveToFile(response);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void ConvertUTF8(){
+        try {
+            body_utf = FileHelper.ConvertUTF8();
         } catch (Exception e) {
             e.printStackTrace();
         }

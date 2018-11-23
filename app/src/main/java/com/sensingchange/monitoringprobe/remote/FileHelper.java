@@ -2,6 +2,7 @@ package com.sensingchange.monitoringprobe.remote;
 
 import android.content.Context;
 import android.os.Environment;
+import android.util.Base64;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -14,6 +15,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.nio.charset.StandardCharsets;
 
 public class FileHelper {
     final static String fileName = "database.txt";
@@ -50,11 +52,18 @@ public class FileHelper {
 
     }
 
-    public static  String ReadFile( Context context){
+    public static String ConvertUTF8(){
+        String file = ReadFile();
+        byte[] data = Base64.decode(file, Base64.DEFAULT);
+        String converted = new String(data, StandardCharsets.UTF_8);
+        return converted;
+    }
+
+    public static  String ReadFile(){
         String line = null;
 
         try {
-            FileInputStream fileInputStream = new FileInputStream (new File(path + fileName));
+            FileInputStream fileInputStream = new FileInputStream (new File(path + "/Database/"+ fileName));
             InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream);
             BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
             StringBuilder stringBuilder = new StringBuilder();

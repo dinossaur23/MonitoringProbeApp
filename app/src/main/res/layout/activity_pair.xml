@@ -34,6 +34,99 @@
         </ImageButton>
     </android.support.v7.widget.CardView>
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/pair_title"
+                android:layout_width="240dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_gravity="center"
+                android:fontFamily="sans-serif"
+                android:hint="@string/pair_title"
+                android:textAllCaps="false"
+                android:textColor="@color/colorBlack"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/pair_description"
+                android:layout_width="match_parent"
+                android:layout_height="135dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
+                android:hint="@string/pair_description" />
+
+            <Button
+                android:id="@+id/btnPair"
+                android:layout_width="150dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:layout_gravity="center"
+                android:background="@drawable/button_radius"
+                android:text="@string/pair_button"
+                android:textColor="@color/colorWhite"
+                android:onClick="pair_and_send"/>
+
+            <TextView
+                android:id="@+id/send_title"
+                android:layout_width="200dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="10dp"
+                android:layout_gravity="center"
+                android:fontFamily="sans-serif"
+                android:hint="@string/send_title"
+                android:textAllCaps="false"
+                android:textColor="@color/colorBlack"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/send_description"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
+                android:hint="@string/send_description" />
+
+            <TextView
+                android:id="@+id/send_info"
+                android:layout_width="285dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="15dp"
+                android:layout_marginEnd="15dp"
+                android:layout_gravity="center"
+                android:textColor="@color/colorRed"
+                android:text="@string/send_info" />
+
+            <Button
+                android:id="@+id/btnSend"
+                android:layout_width="150dp"
+                android:layout_height="35dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:layout_gravity="center"
+                android:background="@drawable/button_radius"
+                android:text="@string/send_button"
+                android:textColor="@color/colorWhite"
+                android:onClick="send_to_server"/>
+
+        </LinearLayout>
+    </RelativeLayout>
+
     <TextView
         android:id="@+id/text_window"
         android:layout_width="match_parent"
@@ -46,7 +139,7 @@
         android:layout_height="wrap_content" >
 
         <Button
-            android:id="@+id/btnPair"
+            android:id="@+id/btnPair2"
             style="?android:attr/buttonBarButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

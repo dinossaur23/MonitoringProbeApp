@@ -57,9 +57,25 @@
 
     <!--Probe with Bluetooth-->
     <string name="title_activity_pair">Probe with Bluetooth</string>
+    <string name="pair_title">Collect information from Probe</string>
+    <string name="pair_description">\tWhen the Probe has internet, by default it is
+        sent all the collected information to the Server. But when the Probe does
+        not have internet, it saves all the collected information locally. \n\tTo collect, all
+        do you need to do is to be at least 5 meters (or 7 steps) from the Probe
+        to PAIR with the Probe via BLUETOOTH, and PRESS the button COLLECT.
+    </string>
+    <string name="pair_button">COLLECT</string>
+    <string name="send_title">Send information to Server</string>
+    <string name="send_description">\tAfter collect the information to your phone, you need to
+        send the collected information to the Server through the internet. We recommend to send when the phone
+        has a Wi-fi connection. \n\tClick on SEND to send the information to the Server.
+    </string>
+    <string name="send_button">SEND</string>
+    <string name="send_info">You don\'t have information collected to send.</string>
+    <string name="send_info_collect">You have information collected to send!</string>
 
     <!--Location-->
     <string name="title_activity_location">Probe Geolocation</string>
     <string name="info">Last geolocation:</string>
-    <string name="invalid_geolocation">It looks like the probe has antenna problems. Here is your current location.</string>
+    <string name="invalid_geolocation">It looks like the Probe has antenna problems. Here is your current location.</string>
 </resources>
