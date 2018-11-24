@@ -12,6 +12,15 @@
     <string name="login">Login</string>
     <string name="sign_up">Sign up</string>
 
+    <!--Register-->
+    <string name="title_activity_register">Register now</string>
+    <string name="title_register">Create your account</string>
+    <string name="name">Name</string>
+    <string name="confirm_password">Confirm password</string>
+    <string name="probe_token">Probe token</string>
+    <string name="probe_token_info">* This token is the Raspberry serial number given at startup.</string>
+    <string name="submit">Submit</string>
+
     <!--Home-->
     <string name="title_activity_home">HomeActivity</string>
     <string name="text_ble">Probe with Bluetooth</string>
@@ -19,7 +28,7 @@
     <string name="text_gps">Probe Geolocation</string>
     <string name="text_graphic">Graphics</string>
     <string name="text_weather">Probe Data</string>
-    <string name="text_wind">Wind information</string>
+    <string name="text_wind">Tips</string>
     <string name="text_settings">Settings</string>
 
     <!--Connect-->
