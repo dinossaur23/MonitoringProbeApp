@@ -101,10 +101,13 @@ public class MainActivity extends AppCompatActivity {
 
             public void onFailure(Call<User> call, Throwable t) {
                 Context context = MainActivity.this;
-                StringBuilder stringBuilder = new StringBuilder();
-                stringBuilder.append("Error: ");
-                stringBuilder.append(t.toString());
-                Toast.makeText(context, stringBuilder.toString(), Toast.LENGTH_SHORT).show();
+//                Developer version
+//
+//                StringBuilder stringBuilder = new StringBuilder();
+//                stringBuilder.append("Error: ");
+//                stringBuilder.append(t.toString());
+//                Toast.makeText(context, stringBuilder.toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "Server error. Please go back end try again.", Toast.LENGTH_SHORT).show();
             }
         });
     }

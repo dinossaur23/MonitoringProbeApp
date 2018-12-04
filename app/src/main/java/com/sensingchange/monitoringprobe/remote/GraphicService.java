@@ -9,9 +9,9 @@ import retrofit2.http.Header;
 import retrofit2.http.Path;
 
 public interface GraphicService {
-    @GET("data/soil_informations/{period}")
+    @GET("data/soil_informations/{period}/ABC")
     Call<SoilData> getSoilData (@Header("Content-Type") String contentType, @Path("period") String period);
 
-    @GET("data/air_informations/{period}")
+    @GET("data/air_informations/{period}/ABC")
     Call<AirData> getAirData (@Header("Content-Type") String contentType, @Path("period") String period);
 }

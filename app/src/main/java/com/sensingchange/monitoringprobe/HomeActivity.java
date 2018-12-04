@@ -36,7 +36,7 @@ public class HomeActivity extends Activity {
             if (ContextCompat.checkSelfPermission(this, // request permission when it is not granted.
                     Manifest.permission.WRITE_EXTERNAL_STORAGE)
                     != PackageManager.PERMISSION_GRANTED) {
-                Log.d("myAppName", "permission:WRITE_EXTERNAL_STORAGE: NOT granted!");
+                Log.d("Location", "permission:WRITE_EXTERNAL_STORAGE: NOT granted!");
 
                 if (ActivityCompat.shouldShowRequestPermissionRationale(this,
                         Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
@@ -57,7 +57,7 @@ public class HomeActivity extends Activity {
             if (ContextCompat.checkSelfPermission(this, // request permission when it is not granted.
                     Manifest.permission.ACCESS_FINE_LOCATION)
                     != PackageManager.PERMISSION_GRANTED) {
-                Log.d("myAppName", "permission:ACCESS_FINE_LOCATION: NOT granted!");
+                Log.d("Location", "permission:ACCESS_FINE_LOCATION: NOT granted!");
 
                 if (ActivityCompat.shouldShowRequestPermissionRationale(this,
                         Manifest.permission.ACCESS_FINE_LOCATION)) {
@@ -70,7 +70,7 @@ public class HomeActivity extends Activity {
                             new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
                             MY_PERMISSIONS_REQUEST_LOCATION);
 
-                    // MY_PERMISSIONS_REQUEST_READ_CONTACTS is an
+                    // MY_PERMISSIONS_REQUEST_LOCATION is an
                     // app-defined int constant. The callback method gets the
                     // result of the request.
                 }
